@@ -8,7 +8,7 @@ def connect_db(app):
 
 """Models for Blogly."""
 
-class User(db.model):
+class User(db.Model):
     __tablename__ = 'users'
     
     id = db.Column(db.Integer,
