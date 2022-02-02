@@ -19,4 +19,14 @@ db.create_all()
 
 @app.route('/')
 def show_homepage():
-    return render_template('home.html')
+    return redirect('/users')
+
+@app.route('/users')
+def show_users():
+    users = User.query.all()
+    return render_template('users.html', users=users)
+
+@app.route('/users/<int:user_id>')
+def show_user_detail(user_id):
+    user = User.query.get_or_404(user_id)
+    return render_template("details.html", user=user)
