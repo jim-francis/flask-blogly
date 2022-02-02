@@ -30,3 +30,19 @@ def show_users():
 def show_user_detail(user_id):
     user = User.query.get_or_404(user_id)
     return render_template("details.html", user=user)
+
+@app.route('/users/new')
+def show_create_user_form():
+    return render_template ('new.html')
+
+@app.route('/users/new', methods=["POST"])
+def create_new_user():
+    first_name = request.form["first_name"]
+    last_name = request.form["last_name"]
+    img_url = request.form["img_url"]
+    
+    new_user = User(first_name=first_name, last_name=last_name, img_url=img_url)
+    db.session.add(new_user)
+    db.session.commit()
+    
+    return redirect("/users")
