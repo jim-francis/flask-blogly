@@ -5,6 +5,8 @@
 <img src="{{user.img_url}}" alt="">
 <p>First Name: {{user.first_name}}</p>
 <p>Last Name: {{user.last_name}}</p>
+<form>
 <a href="/users/{{user.id}}/edit"><button class="btn btn-primary">Edit</button></a>
-<a href="/users"><button class="btn btn-danger">Delete</button></a>
+<button formaction="/users/{{ user.id }}/delete" formmethod="POST" class="btn btn-danger">Delete</button>
+</form>
 {% endblock %}
