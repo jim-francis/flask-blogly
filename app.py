@@ -46,3 +46,20 @@ def create_new_user():
     db.session.commit()
     
     return redirect("/users")
+
+@app.route('/users/<int:user_id>/edit')
+def show_edit_form(user_id):
+    user = User.query.get_or_404(user_id)
+    return render_template('edit.html', user=user)
+
+@app.route('/users/<int:user_id>/edit', methods=["POST"])
+def edit_user(user_id):
+    user = User.query.get_or_404(user_id)
+    user.first_name = request.form["first_name"]
+    user.last_name = request.form["last_name"]
+    user.img_url = request.form["img_url"]
+    
+    db.session.add(user)
+    db.session.commit()
+    
+    return redirect("/users")
