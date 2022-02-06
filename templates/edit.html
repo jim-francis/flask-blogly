@@ -4,15 +4,15 @@
 <h1 class="display-1">Edit user: {{user.first_name}} {{user.last_name}}</h1>
 <form method="POST">
     <div class="mb-3">
-    <label for="first_name" class="form-control">First Name:</label>
+    <label for="first_name" class="form-label">First Name:</label>
     <input type="text" name="first_name" class="form-control" value="{{user.first_name}}" required>
     </div>
     <div class="mb-3">
-    <label for="last_name" class="form-control">Last Name:</label>
+    <label for="last_name" class="form-label">Last Name:</label>
     <input type="text" name="last_name" class="form-control" value="{{user.last_name}}">
     </div>
     <div class="mb-3">
-    <label for="img_url" class="form-control">Image Url:</label>
+    <label for="img_url" class="form-label">Image Url:</label>
     <input type="text" name="img_url" class="form-control" value="{{user.img_url}}">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
