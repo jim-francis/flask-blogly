@@ -1,0 +1,16 @@
+{%extends 'base.html' %}
+{%block title%}{{tag.name}}{%endblock%}
+{%block content%}
+<h1 class="display-1">Posts that are {{tag.name}}:</h1>
+<ul>
+    {% for post in tag.posts %}
+    <li><a href="/posts/{{ post.id }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+  <form>
+    <button class="btn btn-primary" formaction="/tags/{{ tag.id }}/edit" formmethod="GET">Edit Tag</button></a>
+    
+    <button formaction="/tags/{{ tag.id }}/delete" formmethod="POST" class="btn btn-danger">Delete</button>
+</form>
+<a href="/tags">Go back.</a>
+{%endblock%}
